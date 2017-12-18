@@ -51,4 +51,7 @@ trait CommonConverters {
   def keyword [F[_]] (s: String)(implicit F: Converter[F, Char]): F[Unit] = {
     s.toList.map(element(_)).foldRight(nil.discard(HNil))(_ *> _)
   }
+
 }
+
+object CommonConverters extends CommonConverters
